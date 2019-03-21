@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+<script src="https://cdn.bootcss.com/react/16.8.4/umd/react.production.min.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.8.4/umd/react-dom.production.min.js"></script>
+<script>
+function App() {
+    return (
+    <div>
+        app {props.name}
+    </div>
+    )
+}
+
+class App2 extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            number: 0
+        }
+    }
+    add() {
+        console.log(this) //undefined
+        // this.state.number += 1   // 错误
+        this.setState = ({
+            number: this.state.number + 1
+        })
+    }
+    render() {
+        return (
+             <div>
+                app2 {this.props.name}
+                <div>
+                    {this.state.number}
+                    <button onClick = {this.add.bind(this)}> + </button>
+                    <button onClick = {()=> this.add}> + </button>
+                </div>
+             </div>
+        )
+    }
+}
+
+function render() {
+    ReactDOM.render(
+         <App2 />,
+        document.querySelector('#root')
+    )
+}
+</script>
+</body>
+</html>

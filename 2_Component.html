@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <style>
+        .red {
+            border: 1px solid gray;
+            border-radius: 2px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+<script src="https://cdn.bootcss.com/react/16.8.4/umd/react.production.min.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.8.4/umd/react-dom.production.min.js"></script>
+<script>
+    
+let number1 = 0
+let add1 = () => {
+    number1 += 1
+    render()
+}
+let minus1 = () => {
+    number -= 1
+    render()
+}
+
+
+let number2 = 0
+let add2 = () => { 
+    number2 += 1
+    render()
+}
+let minus2 = () => {
+    number2 -= 1
+    render()
+}
+
+
+
+function App() {
+  return React.createElement("div", null,
+    React.createElement(Box1, {
+        name: "加一",
+        age: "18"
+    }), 
+    React.createElement(Box2, {
+        name: "加二",
+        age: "19"
+    })
+  );
+    // <div>
+    //     <Box name="加一" age="18" />
+    //     <Box name="加二" age="19" />
+    // </div>
+}
+
+
+function Box1(obj) {
+    return (
+        React.createElement('div', {className: 'red'}, '我的Name是', obj.name,
+            React.createElement('hr', null),
+            React.createElement('span', null, number1),
+            React.createElement('button', { onClick: add1 }, '+'),
+            React.createElement('button', { onClick: minus1 }, '-')
+            // <div>
+                // 我的 Name 是 {obj.name}
+                // <hr/>
+                //  <span className ='red'>{number}</span>
+                //  <button onClick = {add>}>+</button>
+                //  <button onClick = {minus}>-</button>
+            // </div>
+        )
+    )
+}
+
+function Box2(obj) {
+    return (
+        React.createElement('div', {className: 'red'}, '我的Name是', obj.name,
+            React.createElement('hr', null),
+            React.createElement('span', null, number2),
+            React.createElement('button', { onClick: add2 }, '+'),
+            React.createElement('button', { onClick: minus2 }, '-'),
+        )
+    )
+}
+
+
+render()
+
+function render() {
+    ReactDOM.render(React.createElement(App),
+    // <App />,
+    document.querySelector('#root'))
+}
+</script>
+
+</body>
+</html>

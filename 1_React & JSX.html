@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React & JSX</title>
+</head>
+<body>
+    <div id="root"></div>
+
+<script src="https://cdn.bootcss.com/react/16.8.4/umd/react.production.min.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.8.4/umd/react-dom.production.min.js"></script>
+<script>
+let number = 0
+
+let add = () => {
+    number += 1
+    render()
+}
+
+let minus = () => {
+    number -= 1
+    render()
+}
+
+render()
+
+function render() {
+    let div = 
+        React.createElement('div', {className: 'parent'},
+            React.createElement('span', {className: 'red'}, number),
+            React.createElement('button', { onClick: add }, '+'),
+            React.createElement('button', { onClick: minus }, '-'),
+            )
+        // <div className = 'parent'>
+        //     <span className ='red'>{number}</span>
+        //     <button onClick = {onClickButton>}>+</button>
+        //     <button onClick = {onClickButton2}>-</button>
+        // </div>
+        ReactDOM.render(div, document.querySelector('#root'))
+}
+</script>
+
+</body>
+</html>
