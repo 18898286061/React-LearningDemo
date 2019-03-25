@@ -1,6 +1,6 @@
 {
     let context = {};
-    window.setX = function(key, value) {
+    window.setContext = function(key, value) {
       context[key] = value;
     };
   
@@ -25,7 +25,7 @@
   }
   
   {
-    window.setX("n", 100);
+    window.setContext("n", 100);
   
     window.f1();
   
